@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface HoverScooterMapper {
     @Mapping(target="model", expression="java(train.getModel() + \"_\" + alien.getClass().getSimpleName())")
-    @Mapping(target="madeforalien", source="alien.fullname")
-    @Mapping(target="maxSpeed", source="train.maxSpeed")
+    @Mapping(source="alien.fullname", target="madeforalien")
+    @Mapping(source="train.maxSpeed", target="maxSpeed")
     public HoverScooter scooter(SlimyAlien alien, Train train);
 }
